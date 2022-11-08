@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('index/', index, name="index-blog"),
@@ -24,4 +26,11 @@ urlpatterns = [
     path('login/', BlogLogin.as_view(), name="blog-login"),
     path('list/', ListPost.as_view(), name="list-post"),
     path('logout/', BlogLogout.as_view(), name="blog-logout"),
+    path('create/', CreatePost.as_view(), name="create-post"),
+    path('update/<int:pk>/', UpdatePost.as_view(), name="update-post"),
+    path('delete/<int:pk>', DeletePost.as_view(), name="delete-post"),
+    path('detail/<int:pk>/', DetailPost.as_view(), name="detail-post"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

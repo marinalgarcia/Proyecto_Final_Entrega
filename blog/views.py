@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 
 # Create your views here.
 def index(request):
@@ -29,3 +29,20 @@ class BlogLogout(LogoutView):
 class ListPost(ListView):
     paginate_by = 2
     model = Post
+
+class CreatePost(CreateView):
+    model=Post
+    fields = ['title', 'short_content', 'content', 'image']
+    success_url = reverse_lazy("list-post")
+
+class UpdatePost(UpdateView):
+    model = Post
+    fields = ['title', 'short_content', 'content', 'image']
+    success_url = reverse_lazy("list-post")
+
+class DeletePost(DeleteView):
+    model = Post
+    success_url = reverse_lazy("list-post")
+
+class DetailPost(DetailView):
+    model=Post

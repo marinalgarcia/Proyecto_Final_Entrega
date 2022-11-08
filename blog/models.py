@@ -7,6 +7,7 @@ class Post(models.Model):
     date_published = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to="posts", null=True, blank=True)
 
+
     def __str__(self):
         return f"id:{self.id}, title:{self.title}"
 
