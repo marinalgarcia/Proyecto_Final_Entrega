@@ -24,6 +24,7 @@ from django.template import loader
 
 
 class excursionesList(ListView):
+  paginate_by = 2
   model = excursiones
   template_name = 'excursiones/excursiones_list.html'
  

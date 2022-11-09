@@ -2,14 +2,16 @@
 {% block contenido %}
 <div class="container">
      
-        <a href="{% url 'create-excursion' %}">Crear una nueva excursión</a>
-    
-    
+            
+    <h3 style="text-align:center"> Lista de Excursiones</h3>
+    <a href="{% url 'create-excursion' %}">Crear una nueva excursión de invitado</a>
+    <br/>
     <table class="table">
         <tr>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>
+            <th>Acciones</th>
         
         </tr>
         
@@ -18,7 +20,11 @@
                 <td>{{ excursiones.nombre }}</td>
                 <td>{{ excursiones.descripcion }}</td>
                 <td>{{ excursiones.precio }} </td>
-               
+                <td>
+                    <a href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
+                    <a href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
+                    <a href="{% url 'detail-excursion' excursiones.id  %}">Ver</a>
+                </td>
             
             </tr>
            

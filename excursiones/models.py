@@ -9,4 +9,4 @@ class excursiones(models.Model):
       #image = models.ImageField(upload_to="posts", null=True, blank=True)
 
 def __str__(self):
-      return f"Nombre: {self.nombre}, -Descripción: {self.descripcion}, Precio: {self.precio}"
+      return f"id:{self.id},Nombre: {self.nombre}, -Descripción: {self.descripcion}, Precio: {self.precio}"
