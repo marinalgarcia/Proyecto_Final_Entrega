@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+{% block contenido %}
+<div class="container">
+     
+        <a href="{% url 'create-excursion' %}">Crear una nueva excursión</a>
+    
+    
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+        
+        </tr>
+        
+        {% for excursiones in object_list %}
+            <tr>
+                <td>{{ excursiones.nombre }}</td>
+                <td>{{ excursiones.descripcion }}</td>
+                <td>{{ excursiones.precio }} </td>
+               
+            
+            </tr>
+           
+        {% endfor %}
+    </table>    
+  
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}
