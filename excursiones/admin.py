@@ -1,5 +1,5 @@
 from django.contrib import admin
-from excursiones.models import excursiones
+from excursiones.models import Excursiones
 
 
-admin.site.register(excursiones)
+admin.site.register(Excursiones)

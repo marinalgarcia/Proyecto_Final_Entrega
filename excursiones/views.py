@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.forms import UserCreationForm
-from excursiones.models import excursiones
+from excursiones.models import Excursiones
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -13,36 +13,26 @@ from django.views.generic.edit import CreateView , UpdateView , DeleteView
 from django.template import loader
 # Create your views here.
 
-
-
-
-# Create your views here.
-#def leerexcursiones(request):
-    #EXCURSIONES = excursiones.objects.all()
-    
-    #return render(request, 'excursiones/excursiones_list.html', {"Excursiones": EXCURSIONES})
-
-
-class excursionesList(ListView):
+class ExcursionesList(ListView):
   paginate_by = 2
-  model = excursiones
+  model = Excursiones
   template_name = 'excursiones/excursiones_list.html'
  
   
-class excursionesDetalle(DetailView):
-    model=excursiones
+class ExcursionesDetalle(DetailView):
+    model=Excursiones
     template_name = 'excursiones/excursiones_detalle.html'
     
-class excursionesCreacion(CreateView):
-    model=excursiones    
+class ExcursionesCreacion(CreateView):
+    model=Excursiones    
     fields = ['nombre', 'descripcion', 'precio']
-    success_url = "/excursiones/Lista"
+    success_url = "/excursiones/lista"
     
-class excursionesUpdate(UpdateView):
-    model=excursiones
+class ExcursionesUpdate(UpdateView):
+    model=Excursiones
     fields = ['nombre', 'descripcion', 'precio']
-    success_url = "/excursiones/Lista"
+    success_url = "/excursiones/lista"
 
-class excursionesDelete(DeleteView):
-    model=excursiones
-    success_url = "/excursiones/Lista"
+class ExcursionesDelete(DeleteView):
+    model=Excursiones
+    success_url = "/excursiones/lista"
