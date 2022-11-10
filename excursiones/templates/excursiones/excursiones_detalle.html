@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="d-flex justify-content-center">
+        <h1>{{object.nombre}}</h1>
+    </div>
+    
+{% endblock %}
+
+{% block contenido %}
+    
+   
+    <div class="container text-wrap py-1 my-1" style="word-break: break-all;">
+            
+            <h6>{{object.descripcion}} </h6>
+            <h5>Precio : $ {{object.precio}} </h5>
+            <img src= {{object.imagen.url}} />
+            
+            <a href="{% url 'list-excursiones'  %}">Volver</a>
+
+    </div>
+ 
+
+{% endblock %}

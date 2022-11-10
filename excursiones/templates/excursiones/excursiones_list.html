@@ -1,0 +1,64 @@
+
+{% extends 'blog/base.html' %}
+{% block contenido %}
+
+<div class="container">
+     
+            
+    <h3 style="text-align:center"> Lista de Excursiones</h3>
+    {% if user.is_authenticated %}
+        <a href="{% url 'create-excursion' %}">Crear una nueva</a>
+        <a href="{% url 'blog-logout' %}">Salir</a>
+        {% else %}
+        <a href="{% url 'blog-login' %}"> Ingresar para crear una nueva excursión</a>
+    {% endif %}    
+    <br/>
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        
+        </tr>
+        
+        {% for excursiones in object_list %}
+            <tr>
+                <td>{{ excursiones.nombre }}</td>
+                <td>{{ excursiones.descripcion }}</td>
+                <td>{{ excursiones.precio }} </td>
+                <td>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
+                        <a href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
+                    {% else %}
+                        <a href="{% url 'blog-login' %}"> Ingresar para modificar</a>
+                    {% endif %}
+                    <a href="{% url 'detail-excursion' excursiones.id  %}">Ver</a>
+                </td>
+            
+            </tr>
+           
+        {% endfor %}
+    </table>    
+  
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}
