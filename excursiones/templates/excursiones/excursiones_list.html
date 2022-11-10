@@ -1,10 +1,17 @@
+
 {% extends 'blog/base.html' %}
 {% block contenido %}
+
 <div class="container">
      
             
     <h3 style="text-align:center"> Lista de Excursiones</h3>
-    <a href="{% url 'create-excursion' %}">Crear una nueva excursión de invitado</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'create-excursion' %}">Crear una nueva</a>
+        <a href="{% url 'blog-logout' %}">Salir</a>
+        {% else %}
+        <a href="{% url 'blog-login' %}"> Ingresar para crear una nueva excursión</a>
+    {% endif %}    
     <br/>
     <table class="table">
         <tr>
@@ -21,8 +28,12 @@
                 <td>{{ excursiones.descripcion }}</td>
                 <td>{{ excursiones.precio }} </td>
                 <td>
-                    <a href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
-                    <a href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
+                        <a href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
+                    {% else %}
+                        <a href="{% url 'blog-login' %}"> Ingresar para modificar</a>
+                    {% endif %}
                     <a href="{% url 'detail-excursion' excursiones.id  %}">Ver</a>
                 </td>
             
