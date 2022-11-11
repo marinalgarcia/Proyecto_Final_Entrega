@@ -9,6 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 
+def about(request):
+    return render(request, "blog/about.html")
+
 # Create your views here.
 def index(request):
     posts = Post.objects.order_by('-date_published').all()

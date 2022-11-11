@@ -31,10 +31,9 @@ urlpatterns = [
     path('update/<int:pk>/', UpdatePost.as_view(), name="update-post"),
     path('delete/<int:pk>', DeletePost.as_view(), name="delete-post"),
     path('detail/<int:pk>/', DetailPost.as_view(), name="detail-post"),    
-    path('excursiones/', include('excursiones.urls'))
-         
-    
-]
+    path('excursiones/', include('excursiones.urls')),
+    path('about/', about)
+    ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
