@@ -49,3 +49,13 @@ class DeletePost(DeleteView):
 
 class DetailPost(DetailView):
     model=Post
+
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email']
+    success_url = reverse_lazy("blog-login")
+
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        blog_title = self.request.GET.get('post-title')
+        return Post.objects.filter(title__icontains=blog_title)

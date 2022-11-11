@@ -4,6 +4,7 @@
     {% if user.is_authenticated %}
         <a href="{% url 'blog-logout' %}">Salir</a>   
         <a href="{% url 'create-post' %}">Crear un nuevo post</a>
+        <a href="{% url 'profile-update' user.id %}">Actualizar Perfil</a>
     {% else %}
         <a href="{% url 'blog-login' %}"> Ingresar</a>
     {% endif %}
@@ -36,8 +37,8 @@
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
             {% endif %}
 
             <span class="current">
@@ -45,8 +46,8 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
             {% endif %}
         </span>
     </div>
