@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block contenido %}
-    
+<a class="btn btn-primary" href="{% url 'list-post'  %}">Volver</a>
     <div class="d-flex justify-content-center">
         {% if object.image %}
         <img height="255" src="{{ object.image.url }}" />
@@ -24,5 +24,5 @@
             {{object.content}}
         
     </div>
-    <a class="btn btn-primary" href="{% url 'list-post'  %}">Volver</a>
+    
 {% endblock %}

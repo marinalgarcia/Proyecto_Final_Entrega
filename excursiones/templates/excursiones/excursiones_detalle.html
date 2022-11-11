@@ -9,17 +9,17 @@
 {% endblock %}
 
 {% block contenido %}
-    
+<a class="btn btn-primary" href="{% url 'list-excursiones'  %}">Volver</a>
    
     <div class="container text-wrap py-1 my-1" style="word-break: break-all;">
             
             <h6>{{object.descripcion}} </h6>
             <h5>Precio : $ {{object.precio}} </h5>
-            <img src= {{object.imagen.url}} />
+            <img height="255" src= {{object.imagen.url}} />
             
             
         
     </div>
-        <a class="btn btn-primary" href="{% url 'list-excursiones'  %}">Volver</a>
+      
 
 {% endblock %}
