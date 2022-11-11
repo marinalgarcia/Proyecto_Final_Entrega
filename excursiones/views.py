@@ -25,12 +25,12 @@ class ExcursionesDetalle(DetailView):
     
 class ExcursionesCreacion(CreateView):
     model=Excursiones    
-    fields = ['nombre', 'descripcion', 'precio']
+    fields = ['nombre', 'descripcion', 'precio','imagen']
     success_url = "/excursiones/lista"
     
 class ExcursionesUpdate(UpdateView):
     model=Excursiones
-    fields = ['nombre', 'descripcion', 'precio']
+    fields = ['nombre', 'descripcion', 'precio','imagen']
     success_url = "/excursiones/lista"
 
 class ExcursionesDelete(DeleteView):
