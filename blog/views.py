@@ -59,3 +59,4 @@ class SearchPostByName(ListView):
     def get_queryset(self):
         blog_title = self.request.GET.get('post-title')
         return Post.objects.filter(title__icontains=blog_title)
+    

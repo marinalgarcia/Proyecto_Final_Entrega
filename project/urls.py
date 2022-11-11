@@ -35,6 +35,7 @@ urlpatterns = [
     path('about/', about),
     path('user-profile/<int:pk>', ProfileUpdate.as_view(), name="profile-update"),
     path('search-by-name/', SearchPostByName.as_view(), name="search-by-name-post"),
+    
     ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
