@@ -12,7 +12,6 @@ from django.views.generic import ListView, CreateView, DeleteView, UpdateView, D
 def about(request):
     return render(request, "blog/about.html")
 
-# Create your views here.
 def index(request):
     posts = Post.objects.order_by('-date_published').all()
     return render(request, 'blog/index.html', {"posts": posts})
