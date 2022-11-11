@@ -37,6 +37,17 @@ pip install pillow
 c:/> pip install whitenoise
 c:/> pip install pillow
 ```
+Otra forma de instalar los paquetes:
+
+- *nix:
+```bash
+pip install -r requisitos.txt
+```
+- en windows:
+```bash
+c:/> pip install -r requisitos.txt
+```
+
 Verificar que los paquetes se instalaron satisfactoriamente.
 
 # Pasos para configurar la aplicación:
