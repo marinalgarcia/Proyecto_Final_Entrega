@@ -64,7 +64,7 @@ python manage.py runserver
 c:/> py manage.py runserver
 ```
 
-Luego ir al http://127.0.0.1:8000/index
+Luego ir a http://127.0.0.1:8000/index
 
 Si todo funciona correctamente se podrá ver en el servidor cómo funciona la aplicación.
 
