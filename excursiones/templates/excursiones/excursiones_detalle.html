@@ -17,9 +17,9 @@
             <h5>Precio : $ {{object.precio}} </h5>
             <img src= {{object.imagen.url}} />
             
-            <a href="{% url 'list-excursiones'  %}">Volver</a>
-
+            
+        
     </div>
- 
+        <a class="btn btn-primary" href="{% url 'list-excursiones'  %}">Volver</a>
 
 {% endblock %}

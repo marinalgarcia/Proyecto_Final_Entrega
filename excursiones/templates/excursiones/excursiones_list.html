@@ -7,9 +7,11 @@
             
     <h3 style="text-align:center"> Lista de Excursiones</h3>
     {% if user.is_authenticated %}
+        <a href="{% url 'index-blog' %}">Ir al inicio</a>
         <a href="{% url 'create-excursion' %}">Crear una nueva</a>
         <a href="{% url 'blog-logout' %}">Salir</a>
         {% else %}
+        <a href="{% url 'index-blog' %}">Ir al inicio</a>
         <a href="{% url 'blog-login' %}"> Ingresar para crear una nueva excursión</a>
     {% endif %}    
     <br/>
@@ -29,12 +31,12 @@
                 <td>{{ excursiones.precio }} </td>
                 <td>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
-                        <a href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
+                        <a  href="{% url 'delete-excursion' excursiones.id  %}">Borrar</a>
+                        <a  href="{% url 'update-excursion' excursiones.id  %}">Actualizar</a>
                     {% else %}
-                        <a href="{% url 'blog-login' %}"> Ingresar para modificar</a>
+                        <a  href="{% url 'blog-login' %}"> Ingresar para modificar</a>
                     {% endif %}
-                    <a href="{% url 'detail-excursion' excursiones.id  %}">Ver</a>
+                    <a class="btn btn-primary" href="{% url 'detail-excursion' excursiones.id  %}">Ver más</a>
                 </td>
             
             </tr>
@@ -46,8 +48,8 @@
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
             {% endif %}
 
             <span class="current">
@@ -55,8 +57,8 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
             {% endif %}
         </span>
     </div>
