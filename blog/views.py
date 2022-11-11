@@ -51,9 +51,10 @@ class DetailPost(DetailView):
     model=Post
 
 class ProfileUpdate(UpdateView):
-    model = User
+    model = User    
     fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy("blog-login")
+    
 
 class SearchPostByName(ListView):
     def get_queryset(self):
